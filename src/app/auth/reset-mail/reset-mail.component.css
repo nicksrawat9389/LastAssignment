@@ -1,0 +1,17 @@
+.rightDiv{
+    background-color: #fbfffa;
+}
+.formDiv{
+    width: 450px;
+    box-shadow: 0 0 10px rgb(12 11 11 / 28%);
+    height: auto;
+    border-radius: 16px;
+    padding: auto;
+    background-color: #ffff;
+}
+.messageImg{
+    background-image: url("../assets/MessageBox.png");
+    height: 200px;
+    width: 250px;
+    scale: 0.6;
+}
