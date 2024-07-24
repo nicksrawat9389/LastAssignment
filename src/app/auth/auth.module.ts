@@ -7,6 +7,8 @@ import { PersonWorkingComponent } from './person-working/person-working.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetMailComponent } from './reset-mail/reset-mail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -14,7 +16,9 @@ import { ResetMailComponent } from './reset-mail/reset-mail.component';
     SigninComponent,
     PersonWorkingComponent,
     ForgotPasswordComponent,
-    ResetMailComponent
+    ResetMailComponent,
+    DashboardComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,

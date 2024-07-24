@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './signin/signin.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetMailComponent } from './reset-mail/reset-mail.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path:'reset-mail',
     component:ResetMailComponent
+  },
+  {
+    path:'side-bar',
+    component:SidebarComponent
   }
 ];
 
