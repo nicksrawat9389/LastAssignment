@@ -15,8 +15,8 @@
             </div>
         </div>
     </div>
-    <div class="mx-3 p-2 ">
-        <table class="table mt-3 px-4 me-3 rounded-5 ">
+    <div class="mx-3 p-2 " >
+        <table class="table mt-3 px-4 me-3 rounded-5 " >
             <thead>
               <tr >
                 <!-- <th scope="col">#</th> -->
@@ -32,15 +32,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Taylor</td>
-                <td>01/05/2000</td>
-                <td>markgmail.com</td>
-                <td>78523645424</td>
-                <td>Los Angles</td>
-                <td>CalFornia</td>
+              <tr *ngFor="let user of users">
+                <td>{{user.firstName}}</td>
+                <td>{{user.middleName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.dob}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.city}}</td>
+                <td>{{user.state}}</td>
                 <td><img src="../../../assets/eye 10.png" alt=""></td>
               </tr>
             </tbody>
