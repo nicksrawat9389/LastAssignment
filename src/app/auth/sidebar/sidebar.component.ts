@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,18 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-    component:boolean=false;
+    
+    constructor(private router:Router) {}
+    userId:any = localStorage.getItem('userId');
 
-    componentRender(){
-      if(this.component){
-        this.component = false;
-      }
+    navigateTo(route: string) {
+      this.router.navigate([route,this.userId]);
     }
-    componentRenderSecond(){
-      if(this.component==false){
-        this.component=true;
-      }
-    }
+    
+
+    
 
     
 }

@@ -11,7 +11,7 @@
             
 
             <div class="add-user-form-wrapper">
-                <form class="add-user-form" [formGroup]="AddUser" (ngSubmit)="onSubmit()">
+                <form class="add-user-form " [formGroup]="AddUser" >
                     <div class="form-heading-wrapper">
                         <p>User Detail</p>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="imgInput-wrapper">
                             <span class="file-name">Upload User image here</span>    
                             <label for="file-input" class="file-label">Choose a file</label>
-                            <input type="file" id="file-input" class="file-input" (change)="onFileChange($event)" />         
+                            <input type="file" id="file-input" class="file-input"  />         
                         </div>
                     </div>
 
@@ -36,16 +36,43 @@
                             <div class="form-input col-md-4 col-12">
                                 <label for="first-name">First Name</label>
                                 <input type="text" id="first-name" name="firstname" placeholder="First Name" formControlName="firstName">
+                                <span class="text-validator" *ngIf="
+                                AddUser.get('firstName')?.touched &&
+                                AddUser.get('firstName')?.hasError('required')">
+                                    * First name Field is required
+                                </span>
+
+                                <span class="text-validator" *ngIf="
+                                AddUser.get('firstName')?.touched &&
+                                AddUser.get('firstName')?.hasError('pattern')">
+                                    * First name should only contains alphabets excluding spaces
+                                </span>
                             </div>
 
                             <div class="form-input col-md-4 col-12">
                                 <label for="middle-name">Middle Name</label>
                                 <input type="text" id="middle-name" name="middlename" placeholder="Middle Name" formControlName="middleName">
+                                <span class="text-validator" *ngIf="
+                                    AddUser.get('middleName')?.touched &&
+                                    AddUser.get('middleName')?.hasError('required')">
+                                    * Middle name Field is required
+                                </span>
+
+                                <span class="text-validator" *ngIf="
+                                    AddUser.get('middleName')?.touched &&
+                                    AddUser.get('middleName')?.hasError('pattern')">
+                                    * Middle name should only contains alphabets excluding spaces
+                                </span>
                             </div>
 
                             <div class="form-input col-md-4 col-12">
                                 <label for="last-name">Last Name</label>
                                 <input type="text" id="last-name" name="lastname" placeholder="Last Name" formControlName="lastName">
+                                <span class="text-validator" *ngIf="
+                                   AddUser.get('lastName')?.touched &&
+                                   AddUser.get('lastName')?.hasError('pattern')">
+                                    * Last name should only contains alphabets excluding spaces
+                                </span>
                             </div>
                         </div>
 
@@ -58,23 +85,51 @@
                             <div class="form-input col-md-4 col-12">
                                 <label for="dob">Date of Birth</label>
                                 <input type="date" id="dob" name="DateOfBirth" placeholder="MM/DD/YY" formControlName="dob">
+                                <span class="text-validator" *ngIf="
+                                AddUser.get('dateOfBirth')?.touched &&
+                                AddUser.get('dateOfBirth')?.hasError('required')">
+                                * Date of birth is required
+                            </span>
                             </div>
 
                             <div class="form-input col-md-4 col-12">
                                 <label for="email">Email</label>
                                 <input type="text" id="email" name="email" placeholder="Email" formControlName="email">
+                                <span class="text-validator" *ngIf="
+                                AddUser.get('email')?.touched &&
+                                AddUser.get('email')?.hasError('required')">
+                                * Email is required
+                            </span>
+
+                            <span class="text-validator" *ngIf="
+                                AddUser.get('email')?.touched &&
+                                AddUser.get('email')?.hasError('email') &&
+                                AddUser.get('email')?.hasError('pattern')">
+                                * Must have a valid email
+                            </span>
                             </div>
+
                         </div>
 
                         <div class="row form-input-row">
                             <div class="form-input col-md-4 col-12">
                                 <label for="dateOfJoining">Date of Joining</label>
                                 <input type="date" id="dateOfJoining" name="dateOfJoining" placeholder="Date of Joining" formControlName="dateOfJoining">
+                                <span class="text-validator" *ngIf="
+                                    AddUser.get('dateOfJoining')?.touched &&
+                                    AddUser.get('dateOfJoining')?.hasError('required')">
+                                    * Date of joining field is required
+                                </span>
                             </div>
 
                             <div class="form-input col-md-4 col-12">
                                 <label for="phone">Phone</label>
                                 <input type="text" id="phone" name="phone" placeholder="Phone" formControlName="phone">
+                                <span class="text-validator" *ngIf="
+                                    AddUser.get('phone')?.touched &&
+                                    AddUser.get('phone')?.hasError('required')">
+                                    * Phone number field is required
+                                </span>
                             </div>
 
                             <div class="form-input col-md-4 col-12">
@@ -85,22 +140,75 @@
 
                         <div class="row form-input-row">
                             <div class="form-input col-md-4 col-12">
-                                <label for="country">Country</label>
-                                <input type="text" id="first-name" name="country" placeholder="Country" formControlName="country">
+                                <label for="address1">Address 1</label>
+                                <input type="text" id="address1" name="address1" placeholder="Address" formControlName="address1">
                             </div>
 
                             <div class="form-input col-md-4 col-12">
-                                <label for="state">State</label>
-                                <input type="text" id="state" name="state" placeholder="State" formControlName="state">
+                                <label for="city1">City 1</label>
+                                <input type="text" id="city1" name="middlename" placeholder="City" formControlName="city1">
                             </div>
 
                             <div class="form-input col-md-4 col-12">
-                                <label for="middle-name">City</label>
-                                <input type="text" id="middle-name" name="middlename" placeholder="City" formControlName="city">
+                                <label for="state1">State 1</label>
+                                <input type="text" id="state1" name="state1" placeholder="State" formControlName="state1">
                             </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        <div class="row form-input-row">
+                            <div class="form-input col-md-4 col-12">
+                                <label for="country1">Country 1</label>
+                                <input type="text" id="country1" name="country" placeholder="Country" formControlName="country1">
+                            </div>
+                            <div class="form-input col-md-4 col-12">
+                                <label for="zipcode1">Zip Code 1</label>
+                                <input type="text" id="zipcode1" name="zipcode1" placeholder="State" formControlName="zipcode1">
+                            </div>
+                            <div class="form-input col-md-4 col-12">
+                                <label for="address2">Address 2</label>
+                                <input type="text" id="address2" name="address2" placeholder="Address" formControlName="address2">
+                            </div>
+    
+                        </div>
 
+
+
+
+                        <div class="row form-input-row">
+                            
+                            <div class="form-input col-md-4 col-12">
+                                <label for="city2">City 2</label>
+                                <input type="text" id="city2" name="city" placeholder="City" formControlName="city2">
+                            </div>
+    
+                            <div class="form-input col-md-4 col-12">
+                                <label for="state2">State 2</label>
+                                <input type="text" id="state2" name="state2" placeholder="State" formControlName="state2">
+                            </div>
+                            <div class="form-input col-md-4 col-12">
+                                <label for="country2">Country 2</label>
+                                <input type="text" id="country2" name="country" placeholder="Country" formControlName="country2">
+                            </div>
                             
                         </div>
+
+
+                        <div class="row form-input-row">
+                            <div class="form-input col-md-4 col-12">
+                                <label for="zipcode2">Zip Code 2</label>
+                                <input type="text" id="zipcode1" name="zipcode2" placeholder="State" formControlName="zipcode2">
+                            </div>
+                            
+
+                        </div>
+                        
+
+
 
                         <!-- <div class="row form-input-row">
                             <div class="form-input col-md-4 col-12">
@@ -121,7 +229,7 @@
                     </div>
 
                     <div class="submit-btn-wrapper">
-                        <button type="submit">Save</button>
+                        <button type="submit"(click)="onUpdate ? updateUser() : onSubmit()">{{onUpdate ? 'Update' : 'Save'}}</button>
                     </div>
 
                 </form>

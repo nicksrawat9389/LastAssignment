@@ -11,8 +11,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { ConfirmPasswordComponent } from './confirm-password/confirm-password.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import {MatIconModule} from '@angular/material/icon';
+import { WrapperComponent } from './wrapper/wrapper.component'
+import {MatSortModule} from '@angular/material/sort'
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     SigninComponent,
@@ -21,14 +26,22 @@ import { HttpClientModule } from '@angular/common/http';
     ResetMailComponent,
     DashboardComponent,
     SidebarComponent,
-    AddUserComponent
+    AddUserComponent,
+    ConfirmPasswordComponent,
+    ChangePasswordComponent,
+    WrapperComponent
   ],
   imports: [
+    NgxPaginationModule,
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    MatSortModule,
+    MatTableModule
+    
   ]
 })
 export class AuthModule { }
