@@ -3,7 +3,7 @@ import { Component, OnDestroy, OnInit, ɵsetAlternateWeakRefImpl } from '@angula
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { first, take, takeUntil } from 'rxjs';
 import { AuthService } from '../service/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CrudService } from '../service/crud.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class AddUserComponent implements OnInit{
   /**
    *
    */
-  constructor(private authService:AuthService,private activatedRoute:ActivatedRoute,private crudService:CrudService) 
+  constructor(private router:Router,private authService:AuthService,private activatedRoute:ActivatedRoute,private crudService:CrudService) 
   {
   }
 
@@ -84,13 +84,14 @@ export class AddUserComponent implements OnInit{
       })
     }
   }
-
+  
   updateUser(){
     if(this.onUpdate){
       let id = this.activatedRoute.snapshot.params['id'];
       console.log("id:",id);
       this.crudService.updateUseDetails(this.AddUser.value,id,this.userId).subscribe((response:any)=>{
         console.log("response of update user",response);
+        this.router.navigate(['/wrapper/dashboard',`${id}`])
       })
 
     }
